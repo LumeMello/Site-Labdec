@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import Button from '../../components/ui/Button';
 import { Input } from '../../components/ui/Field';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/labdec-logo.jpg';
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -28,13 +28,12 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="w-full max-w-sm">
-      <div className="mb-8 text-center text-white">
-        <img src={logo} alt="" className="mx-auto h-14 w-14" />
-        <h1 className="mt-4 text-2xl font-bold">LABDEC</h1>
-        <p className="text-sm text-brand-100/80">Gestão de Materiais, Equipamentos e Projetos · UFCI-RJ</p>
+    <div className="w-full">
+      <div className="mb-6 text-center">
+        <img src={logo} alt="LABDEC" className="mx-auto h-44 w-auto mix-blend-multiply" />
+        <p className="mt-2 text-sm font-semibold text-slate-500">Gestão de Materiais, Equipamentos e Projetos · UFCI-RJ</p>
       </div>
-      <form onSubmit={enviar} className="space-y-4 rounded-2xl bg-white p-6 shadow-xl">
+      <form onSubmit={enviar} className="space-y-4 rounded-2xl bg-white p-6 shadow-xl ring-1 ring-slate-200">
         <Input
           label="Usuário"
           placeholder="Ex.: JoaoSilva20241"

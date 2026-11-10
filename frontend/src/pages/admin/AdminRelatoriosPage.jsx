@@ -13,6 +13,10 @@ import {
   exportarCSV, formatarData, formatarDataHora,
 } from '../../utils/formatters';
 
+const COR_AREA = {
+  AGUA: 'bg-petala-azul', SOLO: 'bg-petala-laranja', EFLUENTES: 'bg-petala-roxo', ENERGIAS_RENOVAVEIS: 'bg-petala-verde',
+};
+
 const ABAS = { acervo: 'Acervo e Equipamentos', projeto: 'Uso por Projeto', usuario: 'Uso por Usuário', area: 'Uso por Área' };
 
 const metricas = [
@@ -47,10 +51,10 @@ function Acervo() {
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <StatCard rotulo="Itens cadastrados" valor={dados.resumo.itens} />
-        <StatCard rotulo="Funcionais" valor={dados.resumo.funcionais} destaque="brand" />
-        <StatCard rotulo="Em manutenção" valor={dados.resumo.em_manutencao} destaque={dados.resumo.em_manutencao ? 'amber' : 'slate'} />
-        <StatCard rotulo="Alertas de reposição" valor={dados.resumo.alertas_reposicao} destaque={dados.resumo.alertas_reposicao ? 'red' : 'slate'} />
+        <StatCard acento="bg-petala-azul" rotulo="Itens cadastrados" valor={dados.resumo.itens} />
+        <StatCard acento="bg-petala-verde" rotulo="Funcionais" valor={dados.resumo.funcionais} destaque="brand" />
+        <StatCard acento="bg-petala-amarelo" rotulo="Em manutenção" valor={dados.resumo.em_manutencao} destaque={dados.resumo.em_manutencao ? 'amber' : 'slate'} />
+        <StatCard acento="bg-petala-rosa" rotulo="Alertas de reposição" valor={dados.resumo.alertas_reposicao} destaque={dados.resumo.alertas_reposicao ? 'red' : 'slate'} />
       </div>
 
       {dados.alertas.length > 0 && (
@@ -154,7 +158,7 @@ function UsoAnual({ aba }) {
               <div key={a.area_atuacao}>
                 <div className="mb-1 flex justify-between text-sm"><span>{AREAS[a.area_atuacao]}</span><span className="tabular-nums">{a.solicitacoes}</span></div>
                 <div className="h-2.5 rounded-full bg-slate-100">
-                  <div className="h-2.5 rounded-full bg-brand-600" style={{ width: `${(a.solicitacoes / totalArea) * 100}%` }} />
+                  <div className={`h-2.5 rounded-full ${COR_AREA[a.area_atuacao]}`} style={{ width: `${(a.solicitacoes / totalArea) * 100}%` }} />
                 </div>
               </div>
             ))}

@@ -12,12 +12,13 @@ export default function Card({ titulo, acoes, children, className = '', semPaddi
   );
 }
 
-export function StatCard({ rotulo, valor, destaque = 'slate', detalhe }) {
+export function StatCard({ rotulo, valor, destaque = 'slate', detalhe, acento = 'bg-brand-600' }) {
   const cores = {
     slate: 'text-slate-900', brand: 'text-brand-700', amber: 'text-amber-600', red: 'text-red-600',
   };
   return (
-    <div className="rounded-xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+    <div className="relative overflow-hidden rounded-xl bg-white p-4 pl-5 shadow-sm ring-1 ring-slate-200">
+      <span className={`absolute inset-y-0 left-0 w-1.5 ${acento}`} aria-hidden />
       <p className="text-xs font-medium tracking-wide text-slate-500 uppercase">{rotulo}</p>
       <p className={`mt-1 text-2xl font-bold ${cores[destaque]}`}>{valor}</p>
       {detalhe && <p className="mt-0.5 text-xs text-slate-500">{detalhe}</p>}

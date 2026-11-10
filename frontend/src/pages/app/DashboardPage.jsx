@@ -53,12 +53,12 @@ export default function DashboardPage() {
       <PageHeader titulo={`Olá, ${usuario.nome.split(' ')[0]}!`} descricao="Resumo das suas patriações, reservas e avisos do laboratório." />
 
       <div className="mb-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <StatCard rotulo="Patriações ativas" valor={patriacoes.length} destaque="brand" />
-        <StatCard rotulo="Reservas agendadas" valor={reservas.length} destaque="brand" />
-        <StatCard rotulo="Projetos ativos" valor={projetosAtivos.length} />
+        <StatCard acento="bg-petala-ciano" rotulo="Patriações ativas" valor={patriacoes.length} destaque="brand" />
+        <StatCard acento="bg-petala-laranja" rotulo="Reservas agendadas" valor={reservas.length} destaque="brand" />
+        <StatCard acento="bg-petala-verde" rotulo="Projetos ativos" valor={projetosAtivos.length} />
         {pode('gerarRelatorios')
-          ? <StatCard rotulo="Alertas de reposição" valor={dados.reposicao.length} destaque={dados.reposicao.length ? 'amber' : 'slate'} />
-          : <StatCard rotulo="Vetos recebidos" valor={vetadas.length} destaque={vetadas.length ? 'red' : 'slate'} />}
+          ? <StatCard acento="bg-petala-amarelo" rotulo="Alertas de reposição" valor={dados.reposicao.length} destaque={dados.reposicao.length ? 'amber' : 'slate'} />
+          : <StatCard acento="bg-petala-rosa" rotulo="Vetos recebidos" valor={vetadas.length} destaque={vetadas.length ? 'red' : 'slate'} />}
       </div>
 
       {vetadas.length > 0 && (
