@@ -12,7 +12,9 @@ export default function Header({ aoAbrirMenu }) {
   };
   return (
     <header className="no-print sticky top-0 z-20 flex h-16 items-center gap-3 border-b border-slate-200 bg-white/90 px-4 backdrop-blur sm:px-6">
+      <div className="faixa-labdec absolute inset-x-0 top-0 h-1 lg:hidden" />
       <button type="button" onClick={aoAbrirMenu} className="rounded-md p-2 text-slate-600 hover:bg-slate-100 lg:hidden" aria-label="Abrir menu">☰</button>
+      <p className="text-lg font-extrabold tracking-wide text-slate-900 lg:hidden">LABDEC</p>
       <div className="flex-1" />
       <div className="text-right">
         <p className="text-sm leading-tight font-medium text-slate-800">{usuario.nome}</p>

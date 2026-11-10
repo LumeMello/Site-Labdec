@@ -69,9 +69,9 @@ export default function AdminVetosPage() {
       </div>
       {filtros.status === 'ATIVO' && !carregando && (
         <div className="mb-4 grid grid-cols-3 gap-4">
-          <StatCard rotulo="Reservas ativas" valor={movimentacoes.filter((m) => m.tipo === 'RESERVA_FIXA').length} />
-          <StatCard rotulo="Patriações ativas" valor={movimentacoes.filter((m) => m.tipo === 'PATRIACAO_MOVEL').length} />
-          <StatCard rotulo="Reagentes patriados" valor={movimentacoes.filter((m) => m.tipo === 'REAGENTE_USO').length} />
+          <StatCard acento="bg-petala-laranja" rotulo="Reservas ativas" valor={movimentacoes.filter((m) => m.tipo === 'RESERVA_FIXA').length} />
+          <StatCard acento="bg-petala-ciano" rotulo="Patriações ativas" valor={movimentacoes.filter((m) => m.tipo === 'PATRIACAO_MOVEL').length} />
+          <StatCard acento="bg-petala-verde" rotulo="Reagentes patriados" valor={movimentacoes.filter((m) => m.tipo === 'REAGENTE_USO').length} />
         </div>
       )}
       <Card semPadding>{carregando ? <Spinner /> : <Table colunas={colunas} linhas={movimentacoes} />}</Card>
