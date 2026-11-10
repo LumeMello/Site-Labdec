@@ -31,6 +31,14 @@ const dist = path.join(__dirname, '..', '..', 'frontend', 'dist');
 if (fs.existsSync(dist)) {
   app.use(express.static(dist));
   app.get('*', (req, res) => res.sendFile(path.join(dist, 'index.html')));
+} else {
+  app.get('/', (req, res) => res.type('html').send(`
+    <h2>API LABDEC funcionando</h2>
+    <p>O site ainda não foi compilado. Escolha uma opção:</p>
+    <ul>
+      <li>Desenvolvimento: pare este servidor e rode <code>npm run dev</code>; depois abra <a href="http://localhost:5173">http://localhost:5173</a>.</li>
+      <li>Produção: rode <code>npm run build</code> e depois <code>npm start</code> de novo.</li>
+    </ul>`));
 }
 
 // eslint-disable-next-line no-unused-vars
